@@ -56,7 +56,6 @@ classifier = tf.estimator.Estimator(
     model_dir=tensorboard_directory,
     config=tf.estimator.RunConfig(
         save_summary_steps=1))
-        # log_step_count_steps=10))
 
 classifier.train(
     input_fn=tf.estimator.inputs.numpy_input_fn(
