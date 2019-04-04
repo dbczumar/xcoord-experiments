@@ -1,0 +1,18 @@
+name: tensorboard_examples
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      tensorboard_directory: {type: string, default: "tb_logs_high_level"}
+    command: |
+          KMP_DUPLICATE_LIB_OK=TRUE python train_estimator.py {tensorboard_directory} \
+            && tensorboard --logdir={tensorboard_directory}
+  low-level:
+    parameters:
+      tensorboard_directory: {type: string, default: "tb_logs_low_level"}
+    command: |
+          python log_metrics_low_level.py {tensorboard_directory} \
+            && tensorboard --logdir={tensorboard_directory}
+
