@@ -11,21 +11,20 @@ if __name__ == "__main__":
 
     with graph.as_default():
         t_input = tf.placeholder(tf.float32, shape=())
-        tf.summary.scalar("mean", t_input)
-        tf.summary.scalar("mode", t_input)
-        mean_mode_metrics_tensor = tf.summary.merge_all()
+        tf.summary.scalar("my_metric", t_input)
+        my_metric_tensor = tf.summary.merge_all()
         writer = tf.summary.FileWriter(tensorboard_directory, graph)
 
     for i in range(10):
         val_to_log = i
         step = i % 5
-        mean_mode_metrics = sess.run(
-            mean_mode_metrics_tensor,
+        my_metric = sess.run(
+            my_metric_tensor,
             feed_dict={
                 t_input: val_to_log,
             })
         print("Logging value: `{val}` at step: `{step}`".format(
             val=val_to_log, step=step))
-        writer.add_summary(mean_mode_metrics, step)
+        writer.add_summary(my_metric, step)
 
 

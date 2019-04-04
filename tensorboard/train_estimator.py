@@ -36,10 +36,10 @@ def get_model(features, labels, mode, params):
 
     softmax_output = tf.nn.softmax(output)
 
-    mae = tf.metrics.mean_absolute_error(
+    custom_mae_metric = tf.metrics.mean_absolute_error(
         predictions=softmax_output,
         labels=labels)
-    tf.summary.scalar("mae", mae[1])
+    tf.summary.scalar("custom_mae_metric", custom_mae_metric[1])
     loss = tf.losses.softmax_cross_entropy(labels, output)
 
     # train_op = tf.train.AdamOptimizer().minimize(loss)
