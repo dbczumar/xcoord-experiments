@@ -11,15 +11,14 @@ if __name__ == "__main__":
 
     with graph.as_default():
         t_input = tf.placeholder(tf.float32, shape=())
-        tf.summary.scalar("my_metric", t_input)
-        my_metric_tensor = tf.summary.merge_all()
+        t_metric = tf.summary.scalar("my_metric", t_input)
         writer = tf.summary.FileWriter(tensorboard_directory, graph)
 
     for i in range(10):
         val_to_log = i
         step = i % 5
         my_metric = sess.run(
-            my_metric_tensor,
+            t_metric,
             feed_dict={
                 t_input: val_to_log,
             })
