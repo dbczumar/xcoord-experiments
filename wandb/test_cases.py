@@ -79,6 +79,12 @@ def multiple_values_different_steps_small_step_first():
     }
     wandb.log(val2, step=7)
 
+def float_steps():
+    val = {
+        "my_metric": 1
+    }
+    wandb.log(val, step=0.3)
+
 if __name__ == "__main__":
     import wandb
     wandb.init(project="test")
@@ -94,3 +100,4 @@ if __name__ == "__main__":
     # multiple_values_different_steps()
     # multiple_values_different_steps_large_step_first()
     multiple_values_different_steps_small_step_first()
+    # float_steps()
