@@ -25,5 +25,6 @@ if __name__ == "__main__":
         print("Logging value: `{val}` at step: `{step}`".format(
             val=val_to_log, step=step))
         writer.add_summary(my_metric, step)
+        writer.flush()
 
 
