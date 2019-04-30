@@ -1,0 +1,6 @@
+name: generate_metrics
+
+entry_points:
+  main:
+    command: bash generate_sample_metrics.sh
+
