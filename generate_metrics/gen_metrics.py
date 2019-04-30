@@ -39,7 +39,7 @@ if __name__ == "__main__":
                 if args.shuffle:
                     np.random.shuffle(timestamps)
 
-                steps_timestamps = zip(steps, timestamps)
+                steps_timestamps = list(zip(steps, timestamps))
                 sample_indices = random.sample(
                     range(len(steps_timestamps)),
                     int((1 - args.entry_dropout) * len(steps_timestamps)))
