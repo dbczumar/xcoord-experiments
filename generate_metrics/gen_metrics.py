@@ -35,7 +35,7 @@ if __name__ == "__main__":
                 steps = np.concatenate([steps, replicated_steps])
 
                 curr_time = int(time.time())
-                timestamps = [1000 * item for item in xrange(curr_time, curr_time + len(steps))]
+                timestamps = [1000 * item for item in range(curr_time, curr_time + len(steps))]
                 if args.shuffle:
                     np.random.shuffle(timestamps)
 
